@@ -2,15 +2,20 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/anmolsaini-hpe/scenario_based_learnings.git'
+        stage('Git Checkout'){        
+            steps{
+            gitCheckout(
+                branch: "main",
+                url: "https://github.com/anmolsaini-hpe/scenario_based_learnings.git"
+            )
             }
         }
         
-        stage('Deploy with Rollback') {
+        stage('Deploy with Rollback'){
             steps {
-                sh './1-deploy.sh --rollback-on-failure'
+                script{                    
+                    sh './1-deploy.sh --rollback-on-failure'
+                }
             }
         }
     }
