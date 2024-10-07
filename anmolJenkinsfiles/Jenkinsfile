@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/anmolsaini-hpe/scenario_based_learnings.git'
+            }
+        }
+        
+        stage('Deploy with Rollback') {
+            steps {
+                sh './1-deploy.sh --rollback-on-failure'
+            }
+        }
+    }
+}
