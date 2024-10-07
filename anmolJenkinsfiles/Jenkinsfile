@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy with Rollback'){
             steps {
                 script{                    
-                    sh './1-deploy.sh --rollback-on-failure'
+                    sh './anmolJenkinsfiles/1-deploy.sh --rollback-on-failure'
                 }
             }
         }
