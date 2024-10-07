@@ -4,10 +4,8 @@ pipeline {
     stages {
         stage('Git Checkout'){        
             steps{
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/anmolsaini-hpe/scenario_based_learnings.git"
-            )
+                git branch: 'main',
+                    url: "https://github.com/anmolsaini-hpe/scenario_based_learnings.git"
             }
         }
         
